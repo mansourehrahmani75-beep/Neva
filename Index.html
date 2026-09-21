@@ -1,0 +1,1806 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+<meta name="theme-color" content="#241b18">
+<link rel="manifest" href="./manifest.json">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="نِوا">
+
+<title>نِوا | با خودم</title>
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --bg: #241b18;
+    --bg-dark: #181211;
+    --card: #f4ede4;
+    --cream: #fffaf2;
+    --brown: #352824;
+    --gold: #c7a46a;
+    --rose: #b58f86;
+    --muted: #a99a91;
+    --line: rgba(244,237,228,.12);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background:
+        radial-gradient(
+            circle at 50% -10%,
+            #4a332b 0%,
+            #241b18 42%,
+            #181211 100%
+        );
+    color: var(--cream);
+    font-family: "Vazirmatn", sans-serif;
+}
+
+button,
+input,
+textarea {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+/* =========================
+   APP
+========================= */
+
+.app {
+    width: min(100%, 520px);
+    min-height: 100vh;
+    margin: auto;
+    padding: 18px 18px 100px;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.brand {
+    font-size: 27px;
+    font-weight: 600;
+}
+
+.brand small {
+    display: block;
+    margin-top: -5px;
+    color: var(--gold);
+    font-size: 9px;
+    letter-spacing: 4px;
+    direction: ltr;
+}
+
+.icon-button {
+    width: 43px;
+    height: 43px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,.04);
+    border: 1px solid var(--line);
+
+    color: var(--cream);
+
+    font-size: 18px;
+}
+
+/* =========================
+   TEXT
+========================= */
+
+.greeting {
+    color: #c9bbb2;
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+.main-title {
+    margin: 0 0 22px;
+
+    font-size: 25px;
+    font-weight: 500;
+
+    line-height: 1.8;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    position: relative;
+
+    padding: 27px 24px 22px;
+
+    overflow: hidden;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #f8f0e6,
+            #e7d9ca
+        );
+
+    color: var(--brown);
+
+    box-shadow:
+        0 20px 55px rgba(0,0,0,.25);
+}
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+
+    width: 160px;
+    height: 160px;
+
+    left: -60px;
+    top: -60px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(155,116,73,.2);
+}
+
+.eyebrow {
+    margin-bottom: 14px;
+
+    color: #8d6d50;
+
+    font-size: 11px;
+}
+
+.affirmation {
+    min-height: 135px;
+
+    display: flex;
+    align-items: center;
+
+    font-size: 21px;
+
+    line-height: 2;
+
+    font-weight: 500;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 8px;
+
+    margin-top: 15px;
+}
+
+.hero-button {
+    flex: 1;
+
+    padding: 10px 8px;
+
+    border: none;
+
+    border-radius: 15px;
+
+    background: var(--brown);
+
+    color: white;
+
+    font-size: 11px;
+}
+
+.hero-button.secondary {
+    background: rgba(53,40,36,.08);
+    color: var(--brown);
+}
+
+/* =========================
+   SECTION
+========================= */
+
+.section {
+    margin-top: 29px;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 12px;
+}
+
+.section-header h2 {
+    margin: 0;
+
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.muted {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+/* =========================
+   MOODS
+========================= */
+
+.moods {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 9px;
+}
+
+.mood {
+    padding: 15px 7px;
+
+    border-radius: 18px;
+
+    border: 1px solid var(--line);
+
+    background: rgba(255,255,255,.045);
+
+    color: #eadfd8;
+
+    font-size: 11px;
+
+    transition: .2s;
+}
+
+.mood:active {
+    transform: scale(.96);
+}
+
+.mood span {
+    display: block;
+
+    margin-bottom: 6px;
+
+    font-size: 21px;
+}
+
+/* =========================
+   FEATURE CARDS
+========================= */
+
+.feature-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 10px;
+}
+
+.feature {
+    min-height: 112px;
+
+    padding: 17px;
+
+    border-radius: 21px;
+
+    border: 1px solid var(--line);
+
+    background: rgba(255,255,255,.055);
+
+    color: var(--cream);
+
+    text-align: right;
+}
+
+.feature-title {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.feature-text {
+    margin-top: 7px;
+
+    color: #bcaea6;
+
+    font-size: 11px;
+
+    line-height: 1.8;
+}
+
+/* =========================
+   VIEWS
+========================= */
+
+.view {
+    display: none;
+}
+
+.view.active {
+    display: block;
+}
+
+.back {
+    margin: 5px 0 18px;
+
+    border: none;
+
+    background: transparent;
+
+    color: #cdbfb7;
+
+    font-size: 12px;
+}
+
+/* =========================
+   LIST
+========================= */
+
+.list {
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+.quote {
+    position: relative;
+
+    padding: 17px 18px;
+
+    border-radius: 19px;
+
+    border: 1px solid var(--line);
+
+    background: rgba(255,255,255,.05);
+
+    color: var(--cream);
+
+    font-size: 14px;
+
+    line-height: 2;
+}
+
+.quote-delete {
+    position: absolute;
+
+    top: 7px;
+    left: 9px;
+
+    border: none;
+
+    background: none;
+
+    color: var(--gold);
+
+    font-size: 18px;
+}
+
+/* =========================
+   FORM
+========================= */
+
+label {
+    display: block;
+
+    margin: 15px 0 7px;
+
+    color: #cdbfb7;
+
+    font-size: 12px;
+}
+
+textarea,
+input {
+    width: 100%;
+
+    padding: 15px;
+
+    border-radius: 18px;
+
+    border: 1px solid var(--line);
+
+    background: rgba(255,255,255,.05);
+
+    color: white;
+
+    outline: none;
+}
+
+textarea {
+    min-height: 170px;
+
+    resize: vertical;
+
+    line-height: 2;
+}
+
+textarea::placeholder,
+input::placeholder {
+    color: #8f817a;
+}
+
+.save-button {
+    width: 100%;
+
+    margin-top: 10px;
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 17px;
+
+    background: var(--gold);
+
+    color: #241b18;
+
+    font-weight: 600;
+}
+
+/* =========================
+   INFO
+========================= */
+
+.note {
+    padding: 15px;
+
+    border-radius: 18px;
+
+    border: 1px dashed rgba(199,164,106,.35);
+
+    color: #cdbfb7;
+
+    font-size: 12px;
+
+    line-height: 2;
+}
+
+/* =========================
+   BOTTOM NAV
+========================= */
+
+.bottom-nav {
+    position: fixed;
+
+    bottom: 0;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: min(100%, 520px);
+
+    padding:
+        10px
+        15px
+        calc(14px + env(safe-area-inset-bottom));
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    background: rgba(24,18,16,.94);
+
+    backdrop-filter: blur(18px);
+
+    border-top: 1px solid var(--line);
+
+    z-index: 20;
+}
+
+.nav-button {
+    border: none;
+
+    background: none;
+
+    color: #968981;
+
+    font-size: 10px;
+}
+
+.nav-button span {
+    display: block;
+
+    margin-bottom: 3px;
+
+    font-size: 19px;
+}
+
+.nav-button.active {
+    color: #e9d6bb;
+}
+
+/* =========================
+   TOAST
+========================= */
+
+.toast {
+    position: fixed;
+
+    bottom: 90px;
+    left: 50%;
+
+    transform:
+        translateX(-50%)
+        translateY(15px);
+
+    padding: 11px 16px;
+
+    border-radius: 15px;
+
+    background: var(--card);
+
+    color: var(--brown);
+
+    font-size: 12px;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition: .25s;
+
+    z-index: 50;
+}
+
+.toast.show {
+    opacity: 1;
+
+    transform:
+        translateX(-50%)
+        translateY(0);
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+<!-- =========================
+     HOME
+========================= -->
+
+<section id="home" class="view active">
+
+    <header class="top">
+
+        <div class="brand">
+            نِوا
+            <small>NEVA</small>
+        </div>
+
+        <button
+            class="icon-button"
+            onclick="openView('settings')">
+            ⚙
+        </button>
+
+    </header>
+
+
+    <div class="greeting">
+        سلام، منصوره 🤍
+    </div>
+
+    <h1 class="main-title">
+        امروز قرار نیست کامل باشی؛
+        <br>
+        فقط کنار خودت باش.
+    </h1>
+
+
+    <!-- AFFIRMATION -->
+
+    <div class="hero">
+
+        <div class="eyebrow">
+            🪞 خودگویی امروز
+        </div>
+
+        <div
+            id="affirmation"
+            class="affirmation">
+        </div>
+
+        <div class="hero-buttons">
+
+            <button
+                class="hero-button"
+                onclick="speakAffirmation()">
+                🎧 گوش دادن
+            </button>
+
+            <button
+                class="hero-button secondary"
+                onclick="nextAffirmation()">
+                ↻ یکی دیگه
+            </button>
+
+            <button
+                class="hero-button secondary"
+                onclick="saveAffirmation()">
+                ♡ ذخیره
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- MOODS -->
+
+    <section class="section">
+
+        <div class="section-header">
+
+            <h2>
+                الان به چی نیاز داری؟
+            </h2>
+
+            <span class="muted">
+                انتخاب کن
+            </span>
+
+        </div>
+
+
+        <div class="moods">
+
+            <button
+                class="mood"
+                onclick="chooseMood('آرامش')">
+                <span>🌙</span>
+                آرامش
+            </button>
+
+            <button
+                class="mood"
+                onclick="chooseMood('اعتمادبه‌نفس')">
+                <span>🪞</span>
+                اعتمادبه‌نفس
+            </button>
+
+            <button
+                class="mood"
+                onclick="chooseMood('انگیزه')">
+                <span>🌱</span>
+                انگیزه
+            </button>
+
+            <button
+                class="mood"
+                onclick="chooseMood('پذیرش')">
+                <span>🤍</span>
+                پذیرش
+            </button>
+
+            <button
+                class="mood"
+                onclick="chooseMood('امید')">
+                <span>☀️</span>
+                امید
+            </button>
+
+            <button
+                class="mood"
+                onclick="chooseMood('رها کردن')">
+                <span>🍂</span>
+                رها کردن
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- FEATURES -->
+
+    <section class="section">
+
+        <div class="section-header">
+
+            <h2>
+                برای امروز
+            </h2>
+
+        </div>
+
+
+        <div class="feature-grid">
+
+            <button
+                class="feature"
+                onclick="openView('journal')">
+
+                <div class="feature-title">
+                    📔 یک دقیقه با خودم
+                </div>
+
+                <div class="feature-text">
+                    هر چیزی که توی ذهنت هست، بنویس.
+                </div>
+
+            </button>
+
+
+            <button
+                class="feature"
+                onclick="openView('night')">
+
+                <div class="feature-title">
+                    🌙 آیین شب
+                </div>
+
+                <div class="feature-text">
+                    روز را آرام ببند.
+                </div>
+
+            </button>
+
+
+            <button
+                class="feature"
+                onclick="openView('categories')">
+
+                <div class="feature-title">
+                    ✦ خودگویی‌ها
+                </div>
+
+                <div class="feature-text">
+                    موضوعی که امروز به آن نیاز داری.
+                </div>
+
+            </button>
+
+
+            <button
+                class="feature"
+                onclick="openView('letter')">
+
+                <div class="feature-title">
+                    💌 نامه به خودم
+                </div>
+
+                <div class="feature-text">
+                    چیزی برای خودِ آینده‌ات بنویس.
+                </div>
+
+            </button>
+
+        </div>
+
+    </section>
+
+</section>
+
+
+<!-- =========================
+     CATEGORIES
+========================= -->
+
+<section id="categories" class="view">
+
+    <button
+        class="back"
+        onclick="openView('home')">
+        → بازگشت
+    </button>
+
+    <h1 class="main-title">
+        خودگویی‌های من
+    </h1>
+
+    <div
+        id="categoryList"
+        class="list">
+    </div>
+
+</section>
+
+
+<!-- =========================
+     JOURNAL
+========================= -->
+
+<section id="journal" class="view">
+
+    <button
+        class="back"
+        onclick="openView('home')">
+        → بازگشت
+    </button>
+
+    <h1 class="main-title">
+        یک دقیقه با خودم
+    </h1>
+
+    <div class="note">
+
+        اینجا لازم نیست قشنگ،
+        منطقی یا مرتب بنویسی.
+
+        <br>
+
+        فقط واقعی باش. 🤍
+
+    </div>
+
+
+    <label>
+        الان توی ذهنت چی می‌گذره؟
+    </label>
+
+    <textarea
+        id="journalText"
+        placeholder="هر چیزی که دلت می‌خواد...">
+    </textarea>
+
+
+    <button
+        class="save-button"
+        onclick="saveJournal()">
+        ذخیره در دفتر من
+    </button>
+
+
+    <div
+        id="journalResult"
+        class="note"
+        style="display:none;margin-top:12px">
+    </div>
+
+</section>
+
+
+<!-- =========================
+     NIGHT
+========================= -->
+
+<section id="night" class="view">
+
+    <button
+        class="back"
+        onclick="openView('home')">
+        → بازگشت
+    </button>
+
+    <h1 class="main-title">
+        🌙 آیین شب
+    </h1>
+
+    <div class="note">
+
+        امروز تمام شد.
+
+        <br>
+
+        لازم نیست دوباره زندگی‌اش کنی.
+
+    </div>
+
+
+    <label>
+        امروز چه چیزی خوب بود؟
+    </label>
+
+    <textarea
+        id="nightGood"
+        placeholder="حتی یک چیز کوچک...">
+    </textarea>
+
+
+    <label>
+        چه چیزی را می‌خواهم رها کنم؟
+    </label>
+
+    <textarea
+        id="nightRelease"
+        placeholder="لازم نیست فردا با خودت ببری...">
+    </textarea>
+
+
+    <label>
+        فردا فقط یک کار مهم من چیست؟
+    </label>
+
+    <input
+        id="nightOne"
+        placeholder="یک قدم کوچک">
+
+
+    <button
+        class="save-button"
+        onclick="saveNight()">
+
+        امشب را می‌بندم 🤍
+
+    </button>
+
+</section>
+
+
+<!-- =========================
+     LETTER
+========================= -->
+
+<section id="letter" class="view">
+
+    <button
+        class="back"
+        onclick="openView('home')">
+        → بازگشت
+    </button>
+
+    <h1 class="main-title">
+        💌 نامه به خودم
+    </h1>
+
+    <div class="note">
+
+        برای خودت بنویس.
+
+        <br>
+
+        چیزی که دوست داری خودِ آینده‌ات بداند.
+
+    </div>
+
+
+    <label>
+        نامه
+    </label>
+
+    <textarea
+        id="letterText"
+        placeholder="منِ عزیزِ آینده‌ام...">
+    </textarea>
+
+
+    <label>
+        چه زمانی دوباره بخوانمش؟
+    </label>
+
+    <input
+        id="letterDate"
+        type="date">
+
+
+    <button
+        class="save-button"
+        onclick="saveLetter()">
+
+        نامه را قفل می‌کنم 🔐
+
+    </button>
+
+</section>
+
+
+<!-- =========================
+     SAVED
+========================= -->
+
+<section id="saved" class="view">
+
+    <button
+        class="back"
+        onclick="openView('home')">
+        → بازگشت
+    </button>
+
+    <h1 class="main-title">
+        ♡ ذخیره‌شده‌ها
+    </h1>
+
+    <div
+        id="savedList"
+        class="list">
+    </div>
+
+</section>
+
+
+<!-- =========================
+     SETTINGS
+========================= -->
+
+<section id="settings" class="view">
+
+    <button
+        class="back"
+        onclick="openView('home')">
+        → بازگشت
+    </button>
+
+    <h1 class="main-title">
+        تنظیمات
+    </h1>
+
+
+    <div class="list">
+
+        <div class="quote">
+
+            🌙 حالت شب
+
+            <br>
+
+            <span class="muted">
+                نِوا از ابتدا برای استفاده‌ی آرام شبانه طراحی شده.
+            </span>
+
+        </div>
+
+
+        <button
+            class="quote"
+            onclick="clearData()">
+
+            پاک کردن اطلاعات ذخیره‌شده
+
+        </button>
+
+    </div>
+
+</section>
+
+</div>
+
+
+<!-- =========================
+     BOTTOM NAV
+========================= -->
+
+<nav class="bottom-nav">
+
+    <button
+        class="nav-button active"
+        onclick="openView('home',this)">
+
+        <span>⌂</span>
+        خانه
+
+    </button>
+
+
+    <button
+        class="nav-button"
+        onclick="openView('categories',this)">
+
+        <span>✦</span>
+        خودگویی
+
+    </button>
+
+
+    <button
+        class="nav-button"
+        onclick="openView('saved',this)">
+
+        <span>♡</span>
+        ذخیره‌ها
+
+    </button>
+
+
+    <button
+        class="nav-button"
+        onclick="openView('journal',this)">
+
+        <span>✎</span>
+        ژورنال
+
+    </button>
+
+</nav>
+
+
+<div
+    id="toast"
+    class="toast">
+</div>
+
+
+<script>
+
+/* =================================
+   DATA
+================================= */
+
+const affirmations = {
+
+    "آرامش": [
+
+        "لازم نیست همه‌چیز را همین امروز حل کنم.",
+
+        "من اجازه دارم آهسته‌تر پیش بروم.",
+
+        "نفس می‌کشم، مکث می‌کنم و به خودم فرصت می‌دهم.",
+
+        "آرامش من ارزشمندتر از عجله‌ی من است."
+
+    ],
+
+
+    "اعتمادبه‌نفس": [
+
+        "من لازم نیست کامل باشم تا به خودم اعتماد کنم.",
+
+        "صدای من، انتخاب‌های من و حضور من ارزشمندند.",
+
+        "من می‌توانم یاد بگیرم، اشتباه کنم و دوباره تلاش کنم.",
+
+        "من خودم را با مسیر دیگران اندازه نمی‌گیرم."
+
+    ],
+
+
+    "انگیزه": [
+
+        "یک قدم کوچک هم حرکت است.",
+
+        "من لازم نیست انگیزه را پیدا کنم؛ می‌توانم با یک کار کوچک شروع کنم.",
+
+        "امروز فقط قدم بعدی را می‌بینم.",
+
+        "پیشرفت آرام، همچنان پیشرفت است."
+
+    ],
+
+
+    "پذیرش": [
+
+        "من لازم نیست با خودم بجنگم تا تغییر کنم.",
+
+        "من امروز خودم را همان‌طور که هستم می‌پذیرم.",
+
+        "احساسات من دشمن من نیستند؛ پیام‌هایی هستند که می‌توانم بشنوم.",
+
+        "من شایسته‌ی مهربانی، حتی از طرف خودم هستم."
+
+    ],
+
+
+    "امید": [
+
+        "این روز تمام داستان من نیست.",
+
+        "ممکن است هنوز چیزهای خوبی در راه باشند.",
+
+        "من می‌توانم برای فردا جا باز کنم.",
+
+        "لازم نیست همه‌چیز را بدانم تا امیدوار بمانم."
+
+    ],
+
+
+    "رها کردن": [
+
+        "هر چیزی که تمام شده، لازم نیست تا ابد با من بماند.",
+
+        "من می‌توانم چیزی را دوست داشته باشم و در عین حال رهایش کنم.",
+
+        "امروز کمی سبک‌تر نفس می‌کشم.",
+
+        "همه‌چیز قرار نیست پاسخ فوری داشته باشد."
+
+    ],
+
+
+    "خوددوستی": [
+
+        "من برای ارزشمند بودن، لازم نیست چیزی را ثابت کنم.",
+
+        "با خودم همان‌طور حرف می‌زنم که با کسی که دوستش دارم.",
+
+        "استراحت من تنبلی نیست؛ بخشی از مراقبت از خودم است."
+
+    ],
+
+
+    "کار و موفقیت": [
+
+        "من می‌توانم هم جاه‌طلب باشم و هم با خودم مهربان بمانم.",
+
+        "موفقیت من فقط با سرعت اندازه‌گیری نمی‌شود.",
+
+        "هر مهارتی که امروز دارم، زمانی برایم تازه بوده است."
+
+    ],
+
+
+    "خواب و آرامش": [
+
+        "امشب قرار نیست فردا را حل کنم.",
+
+        "بدنم حق دارد استراحت کند.",
+
+        "روز تمام شده؛ حالا نوبت آرام شدن من است."
+
+    ],
+
+
+    "روزهای سخت": [
+
+        "لازم نیست در یک روز سخت، نسخه‌ی ایده‌آل خودم باشم.",
+
+        "اینکه هنوز ادامه می‌دهم، خودش یک واقعیت مهم است.",
+
+        "می‌توانم امروز را فقط به اندازه‌ی امروز زندگی کنم."
+
+    ]
+
+};
+
+
+/* =================================
+   STATE
+================================= */
+
+let currentMood = "آرامش";
+
+let currentIndex = 0;
+
+
+/* =================================
+   AFFIRMATION
+================================= */
+
+function currentAffirmations() {
+
+    return affirmations[currentMood];
+
+}
+
+
+function renderAffirmation() {
+
+    const list = currentAffirmations();
+
+    document.getElementById("affirmation")
+        .textContent =
+        list[currentIndex % list.length];
+
+}
+
+
+function nextAffirmation() {
+
+    currentIndex++;
+
+    renderAffirmation();
+
+}
+
+
+function chooseMood(mood) {
+
+    currentMood = mood;
+
+    currentIndex = 0;
+
+    renderAffirmation();
+
+    showToast(
+        "برای تو: " + mood + " 🤍"
+    );
+
+}
+
+
+/* =================================
+   SPEECH
+================================= */
+
+function speakAffirmation() {
+
+    if (!("speechSynthesis" in window)) {
+
+        showToast(
+            "مرورگر شما پخش صوت فارسی را پشتیبانی نمی‌کند."
+        );
+
+        return;
+    }
+
+
+    speechSynthesis.cancel();
+
+
+    const text =
+        currentAffirmations()
+        [currentIndex % currentAffirmations().length];
+
+
+    const speech =
+        new SpeechSynthesisUtterance(text);
+
+
+    speech.lang = "fa-IR";
+
+    speech.rate = 0.82;
+
+    speech.pitch = 1;
+
+
+    speechSynthesis.speak(speech);
+
+
+    showToast("در حال پخش 🎧");
+
+}
+
+
+/* =================================
+   SAVED AFFIRMATIONS
+================================= */
+
+function saveAffirmation() {
+
+    const text =
+        currentAffirmations()
+        [currentIndex % currentAffirmations().length];
+
+
+    let saved =
+        JSON.parse(
+            localStorage.getItem("nevaSaved")
+            || "[]"
+        );
+
+
+    if (!saved.includes(text)) {
+
+        saved.unshift(text);
+
+        localStorage.setItem(
+            "nevaSaved",
+            JSON.stringify(saved)
+        );
+
+    }
+
+
+    showToast("ذخیره شد ♡");
+
+}
+
+
+function renderSaved() {
+
+    const saved =
+        JSON.parse(
+            localStorage.getItem("nevaSaved")
+            || "[]"
+        );
+
+
+    const container =
+        document.getElementById("savedList");
+
+
+    if (!saved.length) {
+
+        container.innerHTML = `
+            <div class="note">
+                هنوز چیزی ذخیره نکرده‌ای. 🤍
+            </div>
+        `;
+
+        return;
+    }
+
+
+    container.innerHTML =
+        saved.map((text,index) => `
+
+            <div class="quote">
+
+                ${text}
+
+                <button
+                    class="quote-delete"
+                    onclick="removeSaved(${index})">
+
+                    ×
+
+                </button>
+
+            </div>
+
+        `).join("");
+
+}
+
+
+function removeSaved(index) {
+
+    let saved =
+        JSON.parse(
+            localStorage.getItem("nevaSaved")
+            || "[]"
+        );
+
+
+    saved.splice(index,1);
+
+
+    localStorage.setItem(
+        "nevaSaved",
+        JSON.stringify(saved)
+    );
+
+
+    renderSaved();
+
+}
+
+
+/* =================================
+   VIEWS
+================================= */
+
+function openView(id, element) {
+
+    document
+        .querySelectorAll(".view")
+        .forEach(view =>
+            view.classList.remove("active")
+        );
+
+
+    document
+        .getElementById(id)
+        .classList.add("active");
+
+
+    document
+        .querySelectorAll(".nav-button")
+        .forEach(button =>
+            button.classList.remove("active")
+        );
+
+
+    if (element) {
+
+        element.classList.add("active");
+
+    }
+
+
+    if (id === "saved") {
+
+        renderSaved();
+
+    }
+
+
+    if (id === "categories") {
+
+        renderCategories();
+
+    }
+
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+
+
+/* =================================
+   CATEGORIES
+================================= */
+
+function renderCategories() {
+
+    const container =
+        document.getElementById("categoryList");
+
+
+    const categories =
+        Object.keys(affirmations);
+
+
+    container.innerHTML =
+        categories.map(category => `
+
+            <button
+                class="quote"
+                onclick="
+                    chooseMood('${category}');
+                    openView('home');
+                ">
+
+                ✦ ${category}
+
+                <br>
+
+                <span class="muted">
+                    ${affirmations[category].length}
+                    خودگویی
+                </span>
+
+            </button>
+
+        `).join("");
+
+}
+
+
+/* =================================
+   JOURNAL
+================================= */
+
+function saveJournal() {
+
+    const text =
+        document
+        .getElementById("journalText")
+        .value
+        .trim();
+
+
+    if (!text) {
+
+        showToast(
+            "اول چیزی برای خودت بنویس 🤍"
+        );
+
+        return;
+
+    }
+
+
+    localStorage.setItem(
+        "nevaJournal",
+        text
+    );
+
+
+    const result =
+        document.getElementById(
+            "journalResult"
+        );
+
+
+    result.style.display = "block";
+
+
+    result.textContent =
+        "آخرین نوشته ذخیره شد: " + text;
+
+
+    showToast(
+        "در دفترت ذخیره شد 📔"
+    );
+
+}
+
+
+/* =================================
+   NIGHT
+================================= */
+
+function saveNight() {
+
+    const data = {
+
+        good:
+            document
+            .getElementById("nightGood")
+            .value,
+
+        release:
+            document
+            .getElementById("nightRelease")
+            .value,
+
+        one:
+            document
+            .getElementById("nightOne")
+            .value,
+
+        date:
+            new Date()
+            .toLocaleDateString("fa-IR")
+
+    };
+
+
+    localStorage.setItem(
+        "nevaNight",
+        JSON.stringify(data)
+    );
+
+
+    showToast(
+        "امشب را بستی. شب آرام 🤍"
+    );
+
+}
+
+
+/* =================================
+   LETTER
+================================= */
+
+function saveLetter() {
+
+    const text =
+        document
+        .getElementById("letterText")
+        .value
+        .trim();
+
+
+    const date =
+        document
+        .getElementById("letterDate")
+        .value;
+
+
+    if (!text) {
+
+        showToast(
+            "نامه‌ات هنوز خالیه 💌"
+        );
+
+        return;
+
+    }
+
+
+    const letter = {
+
+        text: text,
+
+        date: date
+
+    };
+
+
+    localStorage.setItem(
+        "nevaLetter",
+        JSON.stringify(letter)
+    );
+
+
+    showToast(
+        "نامه قفل شد 🔐"
+    );
+
+}
+
+
+/* =================================
+   CLEAR DATA
+================================= */
+
+function clearData() {
+
+    const confirmDelete =
+        confirm(
+            "همه اطلاعات ذخیره‌شده پاک شود؟"
+        );
+
+
+    if (!confirmDelete) return;
+
+
+    localStorage.clear();
+
+
+    showToast(
+        "اطلاعات پاک شد."
+    );
+
+}
+
+
+/* =================================
+   TOAST
+================================= */
+
+let toastTimer;
+
+
+function showToast(message) {
+
+    const toast =
+        document.getElementById("toast");
+
+
+    toast.textContent =
+        message;
+
+
+    toast.classList.add("show");
+
+
+    clearTimeout(toastTimer);
+
+
+    toastTimer =
+        setTimeout(() => {
+
+            toast.classList.remove("show");
+
+        }, 1800);
+
+}
+
+
+/* =================================
+   START
+================================= */
+
+renderAffirmation();
+
+renderCategories();
+
+
+/* =================================
+   PWA / SERVICE WORKER
+================================= */
+
+if ("serviceWorker" in navigator) {
+
+    window.addEventListener("load", () => {
+
+        navigator.serviceWorker
+            .register("./sw.js")
+            .then(() => {
+
+                console.log("NEVA Service Worker فعال شد 🤎");
+
+            })
+            .catch(error => {
+
+                console.log(
+                    "خطا در فعال‌سازی PWA:",
+                    error
+                );
+
+            });
+
+    });
+
+}
+
+</script>
+
+</body>
+</html>
