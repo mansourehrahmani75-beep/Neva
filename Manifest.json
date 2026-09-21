@@ -1,0 +1,17 @@
+{
+  "name": "نِوا | با خودم",
+  "short_name": "نِوا",
+  "description": "جایی برای برگشتن به خودت.",
+  "lang": "fa", "dir": "rtl",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#181211",
+  "theme_color": "#241b18",
+  "categories": [
+    "lifestyle",
+    "health",
+    "personalization"
+  ]
+}
